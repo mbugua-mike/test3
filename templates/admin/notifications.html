@@ -1,0 +1,26 @@
+{% extends "admin/admin_base.html" %}
+
+{% block subtitle %}Send Notifications{% endblock %}
+
+{% block admin_content %}
+<h2>Send Notifications to All Users</h2>
+
+<div class="admin-form-section">
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.message.label }}
+            {{ form.message(class="form-control", rows=6) }}
+            {% for error in form.message.errors %}
+                <span class="error-message">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
+
+{# Optionally add a section to display recently sent notifications #}
+
+{% endblock %} 

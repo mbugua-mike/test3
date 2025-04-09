@@ -1,0 +1,273 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    background-color: #ffffff; /* White */
+    color: #333;
+}
+
+header {
+    background-color: #8A2BE2; /* Purple */
+    color: #ffffff; /* White */
+    padding: 1rem 0;
+    text-align: center;
+}
+
+nav {
+    background-color: #FFB6C1; /* Light Pink */
+    padding: 0.5rem 0;
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #8A2BE2; /* Purple */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #ffffff; /* White */
+    background-color: #8A2BE2; /* Purple */
+    padding: 0.3rem 0.5rem;
+    border-radius: 5px;
+}
+
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#about {
+    background-color: #f8f0fc; /* Very Light Pink/Lavender */
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+#about h2 {
+    color: #8A2BE2; /* Purple */
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+#about pre {
+    white-space: pre-wrap; /* Preserve line breaks */
+    word-wrap: break-word;
+    font-family: inherit; /* Use body font */
+    color: #555;
+    line-height: 1.8;
+}
+
+#join-us {
+    background-color: #fff5f7; /* Very Light Pink */
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+#join-us h2 {
+    color: #8A2BE2; /* Purple */
+    margin-bottom: 1rem;
+}
+
+#join-us ul {
+    list-style: none;
+    margin: 1rem 0;
+}
+
+#join-us li {
+    margin: 0.5rem 0;
+    color: #555;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #8A2BE2; /* Purple */
+    color: #ffffff; /* White */
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #7B1FA2; /* Darker Purple */
+}
+
+/* Auth Forms */
+.auth-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f8f0fc; /* Very Light Pink/Lavender */
+    border-radius: 8px;
+}
+
+.auth-container h2 {
+    color: #8A2BE2; /* Purple */
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: #8A2BE2; /* Purple */
+    color: #ffffff; /* White */
+}
+
+.btn-primary:hover {
+    background-color: #7B1FA2; /* Darker Purple */
+}
+
+.auth-links {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.auth-links a {
+    color: #8A2BE2; /* Purple */
+    text-decoration: none;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+/* Flash Messages */
+.flash-message {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+footer {
+    background-color: #8A2BE2; /* Purple */
+    color: #ffffff; /* White */
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 0.5rem 0;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+    
+    .auth-container {
+        padding: 1rem;
+    }
+}
+
+/* Add more specific styles for other sections as needed */
+
+/* User-facing lists */
+.meeting-list,
+.appointment-list,
+.notification-list {
+    list-style: none;
+    padding: 0;
+}
+
+.meeting-item,
+.appointment-item,
+.notification-item {
+    background-color: #f8f0fc;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.meeting-item h3,
+.appointment-item h3, /* If you add titles to appointments */
+.notification-item h3 { /* If you add titles to notifications */
+    color: #8A2BE2; /* Purple */
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.meeting-item p,
+.appointment-item p,
+.notification-item p {
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.meeting-item strong,
+.appointment-item strong,
+.notification-item strong {
+    color: #333;
+}
+
+.notification-item.unread {
+    background-color: #fff5f7; /* Lighter pink for unread */
+    border-left: 5px solid #FFB6C1; /* Pink border */
+}
+
+.notification-item small,
+.appointment-item small {
+    display: block;
+    margin-top: 0.5rem;
+    color: #777;
+    font-size: 0.9em;
+} 

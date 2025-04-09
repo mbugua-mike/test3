@@ -1,0 +1,44 @@
+{% extends "admin/admin_base.html" %}
+
+{% block subtitle %}Manage Users{% endblock %}
+
+{% block admin_content %}
+<h2>Manage Users</h2>
+
+<table class="admin-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Full Name</th>
+            <th>Phone</th>
+            <th>Admin</th>
+            <th>Joined</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.full_name }}</td>
+            <td>{{ user.phone_number }}</td>
+            <td>{{ 'Yes' if user.is_admin else 'No' }}</td>
+            <td>{{ user.created_at.strftime('%Y-%m-%d') }}</td>
+            <td>
+                {# Add links for edit/delete user actions here #}
+                <a href="#">Edit</a> | <a href="#">Delete</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="8">No users found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %} 

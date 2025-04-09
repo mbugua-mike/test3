@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<section id="about">
+    <h2>About Us</h2>
+    <pre>{{ about_text }}</pre>
+</section>
+
+{% if not current_user.is_authenticated %}
+<section id="join-us">
+    <h2>Join Our Support Group</h2>
+    <p>Become a member of our supportive community. Register now to access all features:</p>
+    <ul>
+        <li>Monthly meetings schedule</li>
+        <li>Clinic routine information</li>
+        <li>Important notifications</li>
+        <li>Support from fellow members</li>
+    </ul>
+    <a href="{{ url_for('auth.register') }}" class="cta-button">Register Now</a>
+</section>
+{% endif %}
+{% endblock %} 

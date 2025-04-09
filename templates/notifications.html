@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Notifications{% endblock %}
+
+{% block content %}
+<h2>Notifications</h2>
+
+{% if notifications %}
+    <ul class="notification-list">
+        {% for notification in notifications %}
+            <li class="notification-item {% if not notification.is_read %}unread{% endif %}">
+                <p>{{ notification.message | nl2br }}</p>
+                <small>Received: {{ notification.created_at.strftime('%Y-%m-%d %H:%M') }}</small>
+                {# Optionally add a button/link to mark as read later #}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>You have no notifications.</p>
+{% endif %}
+
+{% endblock %} 

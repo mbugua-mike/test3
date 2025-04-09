@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Meetings{% endblock %}
+
+{% block content %}
+<h2>Scheduled Meetings</h2>
+
+{% if meetings %}
+    <ul class="meeting-list">
+        {% for meeting in meetings %}
+            <li class="meeting-item">
+                <h3>{{ meeting.title }}</h3>
+                <p><strong>Date:</strong> {{ meeting.date.strftime('%A, %B %d, %Y at %I:%M %p') }}</p>
+                {% if meeting.location %}
+                    <p><strong>Location:</strong> {{ meeting.location }}</p>
+                {% endif %}
+                {% if meeting.description %}
+                    <p><strong>Description:</strong><br>{{ meeting.description | nl2br }}</p> {# nl2br filter adds line breaks #}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>There are no upcoming meetings scheduled at this time.</p>
+{% endif %}
+
+{% endblock %} 

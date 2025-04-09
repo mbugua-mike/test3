@@ -1,0 +1,89 @@
+{% extends "admin/admin_base.html" %}
+
+{% block subtitle %}Manage Meetings{% endblock %}
+
+{% block admin_content %}
+<h2>Manage Meetings</h2>
+
+<div class="admin-form-section">
+    <h3>Add New Meeting</h3>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.title.label }}
+            {{ form.title(class="form-control") }}
+            {% for error in form.title.errors %}
+                <span class="error-message">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.date.label }}
+            {{ form.date(class="form-control", id="meeting-date") }}
+            {% for error in form.date.errors %}
+                <span class="error-message">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.location.label }}
+            {{ form.location(class="form-control") }}
+            {% for error in form.location.errors %}
+                <span class="error-message">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.description.label }}
+            {{ form.description(class="form-control", rows=4) }}
+            {% for error in form.description.errors %}
+                <span class="error-message">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
+
+<hr>
+
+<h3>Existing Meetings</h3>
+<table class="admin-table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for meeting in meetings %}
+        <tr>
+            <td>{{ meeting.title }}</td>
+            <td>{{ meeting.date.strftime('%Y-%m-%d %H:%M') }}</td>
+            <td>{{ meeting.location }}</td>
+            <td>
+                {# Add links for edit/delete meeting actions here #}
+                <a href="#">Edit</a> | <a href="#">Delete</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="4">No meetings found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+
+{% block admin_extra_js %}
+<script>
+  flatpickr("#meeting-date", {
+    enableTime: true,       // Enable time selection
+    dateFormat: "Y-m-d H:i", // Match Flask form format
+    altInput: true,         // Show user-friendly format
+    altFormat: "F j, Y h:i K", // Example: August 9, 2024 03:00 PM
+    time_24hr: false        // Use 12-hour time format with AM/PM
+  });
+</script>
+{% endblock %} 

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Clinic Routine{% endblock %}
+
+{% block content %}
+<h2>My Clinic Appointments</h2>
+
+{% if appointments %}
+    <ul class="appointment-list">
+        {% for appointment in appointments %}
+            <li class="appointment-item status-{{ appointment.status | lower }}">
+                <h4>Appointment on {{ appointment.appointment_time.strftime('%A, %B %d, %Y at %I:%M %p') }}</h4>
+                <p><strong>Status:</strong> {{ appointment.status }}</p>
+                {% if appointment.doctor_name %}
+                    <p><strong>With:</strong> {{ appointment.doctor_name }}</p>
+                {% endif %}
+                {% if appointment.location %}
+                    <p><strong>Location:</strong> {{ appointment.location }}</p>
+                {% endif %}
+                {% if appointment.details %}
+                    <p><strong>Details/Instructions:</strong><br>{{ appointment.details | nl2br }}</p>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>You have no clinic appointments scheduled.</p>
+{% endif %}
+
+{% endblock %} 
